@@ -1,11 +1,15 @@
 const express = require('express');
+const path = require('path');
 const app = express();
-const appName = 'pesquisa-de-modulos-npm-br';
-const outputPath = `${__dirname}/dist/${appName}`;
 
-app.use(express.static(outputPath));
+const PORT = process.env.PORT || 8080;
+
+app.use(express.static(__dirname + '/dist/frontend'));
+
 app.get('/*', (req, res)=>{
-    res.sendFile(`${outputPath}/index.html`)
-});
+    res.sendFile(__dirname + '/dist/frontend/index.html');
+})
 
-app.listen(process.env.PORT)
+app.listen(PORT, ()=> {
+    console.log('Servidor iniciado na porta ' + PORT);
+})
