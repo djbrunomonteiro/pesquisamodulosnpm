@@ -1,1 +1,1 @@
-web: npm stat
+web: node server
