@@ -1,0 +1,67 @@
+<section class="content"> 
+         <div class="content-home-title">
+            <div class="title">Node Package Manager</div>
+            <div class="subtitle">Enconte pacotes brasileiros para Node.js  </div> 
+         </div> 
+
+
+         <div class="content-search">
+
+          <div class="search-input">
+          <mat-form-field class="form-field" appearance="outline" >
+            <mat-label>Buscar pacotes </mat-label>
+            <input matInput class="input" type="text" [(ngModel)]="value" name="value" minlength="2" required>
+            
+            <button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+              <mat-icon>close</mat-icon>
+            </button>
+          </mat-form-field>
+             <button mat-button class="button" (click)="search()"> Pesquisar</button>
+          </div> 
+        </div>
+        <div>
+          <mat-progress-bar mode="query" *ngIf="loading"></mat-progress-bar>
+        </div>
+
+         <div class="content-result">
+            <mat-card *ngFor="let item of lists">             
+                <mat-accordion >
+ 
+                    <mat-expansion-panel  (opened)="panelOpenState = true"
+                                         (closed)="panelOpenState = false">
+                      <mat-expansion-panel-header>
+                        <mat-panel-title class="title-name"  >                         
+                          {{item.name | uppercase}}
+                        </mat-panel-title>
+                        
+                      </mat-expansion-panel-header>
+
+                      <mat-panel-description>
+                        
+                        <p class="title-version"> Versão: {{item.version}}</p>
+                      </mat-panel-description>
+                      
+                      <mat-panel-description>
+                        
+                        <p class="modified">Update: {{item.modified | date: 'MMM d, y, h:mm a'  }}</p>
+                      </mat-panel-description>
+                      <mat-panel-description>
+                        
+                        <mat-icon >question_answer</mat-icon>
+                        <p class="description">"{{item.description}}"</p>
+
+                      </mat-panel-description>
+                     
+                      
+                    </mat-expansion-panel>
+                  </mat-accordion>
+                
+
+            </mat-card>
+
+            
+            
+         </div>
+
+</section>
+

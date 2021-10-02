@@ -1,0 +1,18 @@
+.footer{
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    justify-content: flex-end;    
+    padding-bottom: 20px;
+    
+
+    
+}
+.footer a {
+
+    font-size: 1rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    padding: 20px;
+
+}

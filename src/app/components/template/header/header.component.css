@@ -1,0 +1,11 @@
+.header{
+    display: flex;
+    align-items: center;
+    background: var(--bg-primay);
+    color: var(--text-third);
+    
+}
+.logo{
+   max-height: 62px;
+   padding: 20px;
+}
